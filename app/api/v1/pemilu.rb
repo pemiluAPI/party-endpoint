@@ -18,13 +18,20 @@ module Pemilu
             parties << {
               id: party.id,
               nama: party.name,
-              visi: party.vision,
-              misi: party.mission,
-              program: party.program,
-              adart: party.adart,
-              alamat_sekretariat_pusat: party.address_central_secretariat,
-              struktur_kepartaian_pusat: party.structure_central_party,
-              resource: party.resource
+              nama_lengkap: party.full_name,
+              url_situs: party.url_website,
+              url_facebook: party.url_facebook,
+              url_twitter: party.url_twitter,
+              url_logo_mini: party.url_logo_mini,
+              url_logo_small: party.url_logo_small,
+              url_logo_medium: party.url_logo_medium,
+              visi: party.vision_mission.vision,
+              misi: party.vision_mission.mission,
+              program: party.vision_mission.program,
+              adart: party.vision_mission.adart,
+              alamat_sekretariat_pusat: party.vision_mission.address_central_secretariat,
+              struktur_kepartaian_pusat: party.vision_mission.structure_central_party,
+              resource: party.vision_mission.resource
             }
         end
 

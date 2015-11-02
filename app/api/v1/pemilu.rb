@@ -7,12 +7,13 @@ module Pemilu
     resource :parties do
       desc "Return all Parties"
       get do
-        
         parties = Array.new
 
+        search = ["name LIKE :name OR full_name LIKE :name", {name: "%#{params[:nama]}%"}]
         limit = (params[:limit].to_i == 0 || params[:limit].empty?) ? 10 : params[:limit]
 
-        Party.limit(limit)
+        Party.where(search)
+          .limit(limit)
           .offset(params[:offset])
           .each do |party|
             parties << {
